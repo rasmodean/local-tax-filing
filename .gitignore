@@ -1,0 +1,7 @@
+**/profiles.json
+**/query_test.py
+**/data/*
+__pycache__/
+*.pyc
+*.csv
+!**/testified*.csv
