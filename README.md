@@ -9,13 +9,15 @@ main.py: run on command line; takes filing frequency
 config.py, profile.py, profiles.json, and taxdata.csv are in root directory.
 
 config.py: contains default and tax-form specific field->data maps for each
-pdf. Field names in pdf and config must match. 
+pdf; field names in pdf and config must match. 
 
-profile.py: data structures for the tax agent info. 
+profile.py: data structures for the tax agent info 
 
-profiles.json: contains the tax agent specific information. 
+profiles.json: contains the tax agent specific information 
 
 taxdata.csv: contians the actual tax data used for filing the forms
+
+tax_form.py: TaxForm class for tax-form specific data and logic
 
 
 ---TESTING---
