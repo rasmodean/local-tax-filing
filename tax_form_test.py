@@ -90,11 +90,17 @@ test_cases = [
          period:=3,
          year:=2024,
          client_id:=1),
-         (name:='Hazard',
+        (name:='Hazard',
          tax_data:=client_data(id=1316, quarter=2, year=2024),
          filing_frequency:='quarterly',
          period:=2,
          year:=2024,
+         client_id:=1316),       
+        (name:='Hazard',
+         tax_data:=client_data(id=1316, quarter=4, year=2023),
+         filing_frequency:='quarterly',
+         period:=4,
+         year:=2023,
          client_id:=1316)       
         ]
 
@@ -200,8 +206,42 @@ expected_outputs = [
             'get_filing_frequency': 'monthly',
             'get_period': '1',
             'get_client_id': '1'   
+            },
+         {
+            'get_client_name': 'Pioneer Corporation GmbH',
+            'get_loc_acct_id': '611',
+            'get_fein': '00-7531439',
+            'get_agent_name': 'Leslie Plowman',
+            'get_title_name': 'Reporting Agent',
+            'get_agency_phone': '8592777401',
+            'get_agency_fax': '1234567890',
+            'get_agency_email': 'mypayroll@psimer.com',
+            'get_agency_name': 'Psimer',
+            'get_agency_ein': '123456789',
+            'get_agency_address': '2533 Larkin Rd #200',
+            'get_agency_city': 'Lexington',
+            'get_agency_state': 'KY',
+            'get_agency_zip': '40503',
+            'get_month': '',
+            'get_quarter': '2',
+            'get_year': '2024',
+            'get_date': '08/28/2024',
+            'get_due_date': '07/30/2024',
+            'get_period_start': '04/01/2024',
+            'get_period_end': '06/30/2024',
+            'get_period_check': '',
+            'get_employee_count': '8',
+            'get_gross_wages': '117330.00',
+            'get_local_taxable': '117330.00',
+            'get_employee_tax': '1465.90',
+            'calc_employee_tax': '1466.62',
+            'calc_outside_wages': '0',
+            'get_form_name': 'Hazard',
+            'get_filing_frequency': 'quarterly',
+            'get_period': '4',
+            'get_client_id': '1316'   
             }
-    ]
+   ]
 
 
 expected_output = {
