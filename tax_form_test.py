@@ -1,5 +1,6 @@
 from tax_form import *
 import pandas as pd
+from config import *
 
 
 TAX_DATA_PATHS = {
@@ -21,49 +22,10 @@ TAX_DATA_PATH_Q1_2024 = './test/testified_taxdata_Q1_2024.csv'
 TAX_DATA_PATH_Q2_2024 = './test/testified_taxdata_Q2_2024.csv'
 TAX_DATA_PATH_Q3_2024 = './test/testified_taxdata_Q3_2024.csv'
 TAX_DATA_PATH_Q4_2023 = './test/testified_taxdata_Q4_2023.csv'
-TEST_TAX_DATA_Q1_2024 = pd.read_csv(TAX_DATA_PATH_Q1_2024)
-TEST_TAX_DATA_Q2_2024 = pd.read_csv(TAX_DATA_PATH_Q2_2024)
-TEST_TAX_DATA_Q3_2024 = pd.read_csv(TAX_DATA_PATH_Q3_2024)
-TEST_TAX_DATA_Q4_2023 = pd.read_csv(TAX_DATA_PATH_Q4_2023)
-CONFIG = {
-        'ReportingAgency' : {
-            'PaydataUSA' : {
-                'name'    : 'PaydataUSA',
-                'agent'   : 'Leslie Plowman',
-                'title'   : 'Reporting Agent',
-                'ein'     : '123456789',
-                'email'   : 'leslie@paydatausa.com',
-                'phone'   : '8592777401',
-                'zip'     : '40503',
-                'city'    : 'Lexington',
-                'state'   : 'Kentucky',
-                'address' : '169 Burt Rd',
-                'fax'     : '1234567890',
-                'ids'     : '[1,999],[2000,9999]'
-                },
-            'Psimer' : {
-                'name'    : 'Psimer',
-                'agent'   : 'Leslie Plowman',
-                'title'   : 'Reporting Agent',
-                'ein'     : '123456789',
-                'email'   : 'psimer@paydatausa.com',
-                'phone'   : '8592777401',
-                'zip'     : '40503',
-                'city'    : 'Lexington',
-                'state'   : 'Kentucky',
-                'address' : '2533 Larkin Rd #200',
-                'fax'     : '1234567890',
-                'ids'     : '[1000, 1999]'               
-                }
-            },
-        'Path' : {
-            'tax_form_templates' : './templates',
-            'tax_data'           : './tax_data.csv',
-            'output'             : './output'
-            }
-        }
-    
-
+# TEST_TAX_DATA_Q1_2024 = pd.read_csv(TAX_DATA_PATH_Q1_2024)
+# TEST_TAX_DATA_Q2_2024 = pd.read_csv(TAX_DATA_PATH_Q2_2024)
+# TEST_TAX_DATA_Q3_2024 = pd.read_csv(TAX_DATA_PATH_Q3_2024)
+# TEST_TAX_DATA_Q4_2023 = pd.read_csv(TAX_DATA_PATH_Q4_2023)
 
 def get_tax_data(quarter:int, year:int):
     try:

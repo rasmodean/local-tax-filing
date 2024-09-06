@@ -2,43 +2,7 @@ import pandas as pd
 
 
 
-CONFIG = {
-        'ReportingAgency' : {
-            'PaydataUSA' : {
-                'name'    : 'PaydataUSA',
-                'agent'   : 'Leslie Plowman',
-                'title'   : 'Reporting Agent',
-                'ein'     : '123456789',
-                'email'   : 'leslie@paydatausa.com',
-                'phone'   : '8592777401',
-                'zip'     : '40503',
-                'city'    : 'Lexington',
-                'state'   : 'Kentucky',
-                'address' : '169 Burt Rd',
-                'fax'     : '1234567890',
-                'ids'     : '[1,999],[2000,9999]'
-                },
-            'Psimer' : {
-                'name'    : 'Psimer',
-                'agent'   : 'Leslie Plowman',
-                'title'   : 'Reporting Agent',
-                'ein'     : '123456789',
-                'email'   : 'psimer@paydatausa.com',
-                'phone'   : '8592777401',
-                'zip'     : '40503',
-                'city'    : 'Lexington',
-                'state'   : 'Kentucky',
-                'address' : '2533 Larkin Rd #200',
-                'fax'     : '1234567890',
-                'ids'     : '[1000, 1999]'               
-                }
-            },
-        'Path' : {
-            'tax_form_templates' : './templates',
-            'tax_data' : './tax_data.csv',
-            'output' : './output'
-            }
-        }
+
     
 
 
