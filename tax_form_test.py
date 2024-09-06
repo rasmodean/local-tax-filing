@@ -27,17 +27,6 @@ TAX_DATA_PATH_Q4_2023 = './test/testified_taxdata_Q4_2023.csv'
 # TEST_TAX_DATA_Q3_2024 = pd.read_csv(TAX_DATA_PATH_Q3_2024)
 # TEST_TAX_DATA_Q4_2023 = pd.read_csv(TAX_DATA_PATH_Q4_2023)
 
-def get_tax_data(quarter:int, year:int):
-    try:
-        return pd.read_csv(TAX_DATA_PATHS[year][quarter])
-    except KeyError as k:
-        print(k)
-
-def client_data(id:int, quarter:int, year:int):
-    tax_data = get_tax_data(quarter, year)
-    client_data = tax_data.query(f'`Client ID` == {id}')
-    return client_data
-
 
 test_cases = [
         (name:='Fayette County School Tax',
@@ -164,10 +153,10 @@ expected_outputs = [
             'get_employee_tax': '1465.90',
             'calc_employee_tax': '1466.62',
             'calc_outside_wages': '0',
-            'get_form_name': 'Lexington City Tax',
-            'get_filing_frequency': 'monthly',
-            'get_period': '1',
-            'get_client_id': '1'   
+            'get_form_name': 'Hazard',
+            'get_filing_frequency': 'quarterly',
+            'get_period': '2',
+            'get_client_id': '1316'   
             },
          {
             'get_client_name': 'Pioneer Corporation GmbH',
@@ -185,7 +174,7 @@ expected_outputs = [
             'get_agency_state': 'KY',
             'get_agency_zip': '40503',
             'get_month': '',
-            'get_quarter': '2',
+            'get_quarter': '4',
             'get_year': '2024',
             'get_date': '08/28/2024',
             'get_due_date': '07/30/2024',
@@ -193,10 +182,10 @@ expected_outputs = [
             'get_period_end': '06/30/2024',
             'get_period_check': '',
             'get_employee_count': '8',
-            'get_gross_wages': '117330.00',
-            'get_local_taxable': '117330.00',
-            'get_employee_tax': '1465.90',
-            'calc_employee_tax': '1466.62',
+            'get_gross_wages': '40187.33',
+            'get_local_taxable': '40187.33',
+            'get_employee_tax': '1507.17',
+            'calc_employee_tax': '1507.03',
             'calc_outside_wages': '0',
             'get_form_name': 'Hazard',
             'get_filing_frequency': 'quarterly',
@@ -205,48 +194,23 @@ expected_outputs = [
             }
    ]
 
+def get_tax_data(quarter:int, year:int):
+    try:
+        return pd.read_csv(TAX_DATA_PATHS[year][quarter])
+    except KeyError as k:
+        print(k)
 
-expected_output = {
-        'get_client_name': '',
-        'get_loc_acct_id': '',
-        'get_fein': '',
-        'get_agent_name': '',
-        'get_title_name': '',
-        'get_agency_phone': '',
-        'get_agency_fax': '',
-        'get_agency_email': '',
-        'get_agency_name': '',
-        'get_agency_ein': '',
-        'get_agency_address': '',
-        'get_agency_city': '',
-        'get_agency_state': '',
-        'get_agency_zip': '',
-        'get_month': '',
-        'get_quarter': '',
-        'get_year': '',
-        'get_date': '',
-        'get_due_date': '',
-        'get_period_start': '',
-        'get_period_end': '',
-        'get_period_check': '',
-        'get_employee_count': '',
-        'get_gross_wages': '',
-        'get_local_taxable': '',
-        'get_employee_tax': '',
-        'calc_employee_tax': '',
-        'calc_outside_wages': '',
-        'get_form_name': '',
-        'get_tax_data': '',
-        'get_filing_frequency': '',
-        'get_period': '',
-        'get_client_id': '',
-        'get_config': '',
-        'get_reporting_agency': ''
-        }
-
+def client_data(id:int, quarter:int, year:int):
+    tax_data = get_tax_data(quarter, year)
+    client_data = tax_data.query(f'`Client ID` == {id}')
+    return client_data
 
 def test_tax_from():
     pass
+    
+def case_test(test_case, expected_output):
+    pass
 
+    
 
 

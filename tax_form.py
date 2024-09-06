@@ -1,9 +1,6 @@
 import pandas as pd
+from config import *
 
-
-
-
-    
 
 
 class TaxForm:
