@@ -14,7 +14,7 @@ class TaxForm:
             client_id
             ):
         self.__name: String = name
-        self.__tax_data: DataFrame = tax_data
+        self.__tax_data: pd.DataFrame = tax_data
         self.__filing_frequency: String = filing_frequency
         self.__period: int = period
         self.__client_id: int = client_id
@@ -64,109 +64,109 @@ class TaxForm:
                 }
 
     def get_client_name(self):
-        pass
+        return '   '
 
     def get_loc_acct_id(self):
-        pass
+        return '   '
 
     def get_fein(self):
-        pass
+        return '   '
 
     def get_agent_name(self):
-        pass
+        return '   '
 
     def get_title_name(self):
-        pass
+        return '   '
 
     def get_agency_phone(self):
-        pass
+        return '   '
 
     def get_agency_fax(self):
-        pass
+        return '   '
 
-    def get_agency_email():
-        pass
+    def get_agency_email(self):
+        return '   '
 
-    def get_agency_name():
-        pass
+    def get_agency_name(self):
+        return '   '
 
-    def get_agency_ein():
-        pass
+    def get_agency_ein(self):
+        return '   '
 
-    def get_agency_address():
-        pass
+    def get_agency_address(self):
+        return '   '
 
-    def get_agency_city():
-        pass
+    def get_agency_city(self):
+        return '   '
 
-    def get_agency_state():
-        pass
+    def get_agency_state(self):
+        return '   '
 
-    def get_agency_zip():
-        pass
+    def get_agency_zip(self):
+        return '   '
 
-    def get_month():
-        pass
+    def get_month(self):
+        return '   '
 
-    def get_quarter():
-        pass
+    def get_quarter(self):
+        return '   '
 
-    def get_year():
-        pass
+    def get_year(self):
+        return '   '
 
-    def get_date():
-        pass
+    def get_date(self):
+        return '   '
 
-    def get_due_date():
-        pass
+    def get_due_date(self):
+        return '   '
 
-    def get_period_start():
-        pass
+    def get_period_start(self):
+        return '   '
 
-    def get_period_end():
-        pass
+    def get_period_end(self):
+        return '   '
 
-    def get_period_end():
-        pass
+    def get_period_end(self):
+        return '   '
 
-    def get_period_end():
-        pass
+    def get_period_end(self):
+        return '   '
 
-    def get_period_end():
-        pass
+    def get_period_end(self):
+        return '   '
 
-    def get_due_date():
-        pass
+    def get_due_date(self):
+        return '   '
 
-    def get_due_date():
-        pass
+    def get_due_date(self):
+        return '   '
 
-    def get_due_date():
-        pass
+    def get_due_date(self):
+        return '   '
 
-    def get_period_check():
-        pass
+    def get_period_check(self):
+        return '   '
 
-    def get_period_check():
-        pass
+    def get_period_check(self):
+        return '   '
 
-    def get_employee_count():
-        pass
+    def get_employee_count(self):
+        return '   '
 
-    def get_gross_wages():
-        pass
+    def get_gross_wages(self):
+        return '   '
 
-    def get_local_taxable():
-        pass
+    def get_local_taxable(self):
+        return '   '
 
-    def get_employee_tax():
-        pass
+    def get_employee_tax(self):
+        return '   '
 
-    def calc_employee_tax():
-        pass
+    def calc_employee_tax(self):
+        return '   '
 
-    def calc_outside_wages():
-        pass
+    def calc_outside_wages(self):
+        return '   '
 
     def get_form_name(self):
         return self.__name
@@ -184,7 +184,7 @@ class TaxForm:
         return self.__client_id
 
     def get_reporting_agency(self):
-        pass
+        return ''
 
     
 class DefaultFiling(TaxForm):

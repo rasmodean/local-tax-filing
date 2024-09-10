@@ -60,7 +60,7 @@ CONFIG = {
                 'address' : '169 Burt Rd',
                 'fax'     : '1234567890',
                 'ids'     : lambda x: ((x >=1 and x < 1000)
-                                       or (x >= 2000 and < 9999))
+                                       or (x >= 2000 and x < 9999))
                 },
             'Psimer' : {
                 'name'    : 'Psimer',
@@ -74,7 +74,7 @@ CONFIG = {
                 'state'   : 'Kentucky',
                 'address' : '2533 Larkin Rd #200',
                 'fax'     : '1234567890',
-                'ids'     :  lambda x: ((x >= 1000 and x < 2000)
+                'ids'     :  lambda x: ((x >= 1000 and x < 2000))
               
                 }
             },

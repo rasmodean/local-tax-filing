@@ -27,8 +27,18 @@ TAX_DATA_PATH_Q4_2023 = './test/testified_taxdata_Q4_2023.csv'
 # TEST_TAX_DATA_Q3_2024 = pd.read_csv(TAX_DATA_PATH_Q3_2024)
 # TEST_TAX_DATA_Q4_2023 = pd.read_csv(TAX_DATA_PATH_Q4_2023)
 
+def get_tax_data(quarter:int, year:int):
+    try:
+        return pd.read_csv(TAX_DATA_PATHS[year][quarter])
+    except KeyError as k:
+        print(k)
 
-test_cases = [
+def client_data(id:int, quarter:int, year:int):
+    tax_data = get_tax_data(quarter, year)
+    client_data = tax_data.query(f'`Client ID` == {id}')
+    return client_data
+
+TEST_CASES = [
         (name:='Fayette County School Tax',
          tax_data:=client_data(id=1, quarter=1, year=2024),
          filing_frequency:='quarterly',
@@ -55,7 +65,7 @@ test_cases = [
          client_id:=1316)       
         ]
 
-expected_outputs = [
+EXPECTED_OUTPUTS = [
         {
             'get_client_name': 'Progressive Dynamics LLC',
             'get_loc_acct_id': 'd01122',
@@ -194,22 +204,92 @@ expected_outputs = [
             }
    ]
 
-def get_tax_data(quarter:int, year:int):
-    try:
-        return pd.read_csv(TAX_DATA_PATHS[year][quarter])
-    except KeyError as k:
-        print(k)
 
-def client_data(id:int, quarter:int, year:int):
-    tax_data = get_tax_data(quarter, year)
-    client_data = tax_data.query(f'`Client ID` == {id}')
-    return client_data
 
-def test_tax_from():
-    pass
+def test_tax_form():
+    for test_case, expected_output in zip(TEST_CASES, EXPECTED_OUTPUTS):
+        try:
+            case_test(test_case, expected_output)
+        except AssertionError as e:
+            print(f'Assertion failed: {e}')
+
     
 def case_test(test_case, expected_output):
-    pass
+    tax_form = TaxForm(*test_case)
+
+    assert ( tax_form.get_client_name() 
+            == expected_output['get_client_name'])
+    assert ( tax_form.get_loc_acct_id() 
+            == expected_output['get_loc_acct_id'])
+    assert ( tax_form.get_fein() 
+            == expected_output['get_fein'])
+    assert ( tax_form.get_agent_name() 
+            == expected_output['get_agent_name'])
+    assert ( tax_form.get_title_name() 
+            == expected_output['get_title_name'])
+    assert ( tax_form.get_agency_phone() 
+            == expected_output['get_agency_phone'])
+    assert ( tax_form.get_agency_fax() 
+            == expected_output['get_agency_fax'])
+    assert ( tax_form.get_agency_email() 
+            == expected_output['get_agency_email'])
+    assert ( tax_form.get_agency_name() 
+            == expected_output['get_agency_name'])
+    assert ( tax_form.get_agency_ein() 
+            == expected_output['get_agency_ein'])
+    assert ( tax_form.get_agency_address() 
+            == expected_output['get_agency_address'])
+    assert ( tax_form.get_agency_city() 
+            == expected_output['get_agency_city'])
+    assert ( tax_form.get_agency_state() 
+            == expected_output['get_agency_state'])
+    assert ( tax_form.get_agency_zip() 
+            == expected_output['get_agency_zip'])
+    assert ( tax_form.get_month() 
+            == expected_output['get_month'])
+    assert ( tax_form.get_quarter() 
+            == expected_output['get_quarter'])
+    assert ( tax_form.get_year() 
+            == expected_output['get_year'])
+    assert ( tax_form.get_date() 
+            == expected_output['get_date'])
+    assert ( tax_form.get_due_date() 
+            == expected_output['get_due_date'])
+    assert ( tax_form.get_period_start() 
+            == expected_output['get_period_start'])
+    assert ( tax_form.get_period_end() 
+            == expected_output['get_period_end'])
+    assert ( tax_form.get_period_check() 
+            == expected_output['get_period_check'])
+    assert ( tax_form.get_employee_count() 
+            == expected_output['get_employee_count'])
+    assert ( tax_form.get_gross_wages() 
+            == expected_output['get_gross_wages'])
+    assert ( tax_form.get_local_taxable() 
+            == expected_output['get_local_taxable'])
+    assert ( tax_form.get_employee_tax() 
+            == expected_output['get_employee_tax'])
+    assert ( tax_form.calc_employee_tax() 
+            == expected_output['calc_employee_tax'])
+    assert ( tax_form.calc_outside_wages() 
+            == expected_output['calc_outside_wages'])
+    assert ( tax_form.get_form_name() 
+            == expected_output['get_form_name'])
+    assert ( tax_form.get_filing_frequency() 
+            == expected_output['get_filing_frequency'])
+    assert ( tax_form.get_period() 
+            == expected_output['get_period'])
+    assert ( tax_form.get_client_id() 
+            == expected_output['get_client_id'])
+
+
+def main():
+
+    test_tax_form()
+
+
+if __name__ == "__main__":
+    main()
 
     
 
