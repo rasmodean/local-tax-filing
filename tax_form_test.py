@@ -205,82 +205,217 @@ EXPECTED_OUTPUTS = [
    ]
 
 
-
 def test_tax_form():
-    for test_case, expected_output in zip(TEST_CASES, EXPECTED_OUTPUTS):
-        try:
-            case_test(test_case, expected_output)
-        except AssertionError as e:
-            print(f'Assertion failed: {e}')
+    i = 1
+    for case, output in zip(TEST_CASES, EXPECTED_OUTPUTS):
+        print(f'************ Case Test:{i} ************')
+        print_chunk(case_test(case, output))
+        i += 1
+
+def print_chunk(lst, size=2):
+    for i in range(0, len(lst), size):
+        chunk = lst[i: i + size]
+        print(chunk)
 
     
 def case_test(test_case, expected_output):
     tax_form = TaxForm(*test_case)
 
-    assert ( tax_form.get_client_name() 
-            == expected_output['get_client_name'])
-    assert ( tax_form.get_loc_acct_id() 
-            == expected_output['get_loc_acct_id'])
-    assert ( tax_form.get_fein() 
-            == expected_output['get_fein'])
-    assert ( tax_form.get_agent_name() 
-            == expected_output['get_agent_name'])
-    assert ( tax_form.get_title_name() 
-            == expected_output['get_title_name'])
-    assert ( tax_form.get_agency_phone() 
-            == expected_output['get_agency_phone'])
-    assert ( tax_form.get_agency_fax() 
-            == expected_output['get_agency_fax'])
-    assert ( tax_form.get_agency_email() 
-            == expected_output['get_agency_email'])
-    assert ( tax_form.get_agency_name() 
-            == expected_output['get_agency_name'])
-    assert ( tax_form.get_agency_ein() 
-            == expected_output['get_agency_ein'])
-    assert ( tax_form.get_agency_address() 
-            == expected_output['get_agency_address'])
-    assert ( tax_form.get_agency_city() 
-            == expected_output['get_agency_city'])
-    assert ( tax_form.get_agency_state() 
-            == expected_output['get_agency_state'])
-    assert ( tax_form.get_agency_zip() 
-            == expected_output['get_agency_zip'])
-    assert ( tax_form.get_month() 
-            == expected_output['get_month'])
-    assert ( tax_form.get_quarter() 
-            == expected_output['get_quarter'])
-    assert ( tax_form.get_year() 
-            == expected_output['get_year'])
-    assert ( tax_form.get_date() 
-            == expected_output['get_date'])
-    assert ( tax_form.get_due_date() 
-            == expected_output['get_due_date'])
-    assert ( tax_form.get_period_start() 
-            == expected_output['get_period_start'])
-    assert ( tax_form.get_period_end() 
-            == expected_output['get_period_end'])
-    assert ( tax_form.get_period_check() 
-            == expected_output['get_period_check'])
-    assert ( tax_form.get_employee_count() 
-            == expected_output['get_employee_count'])
-    assert ( tax_form.get_gross_wages() 
-            == expected_output['get_gross_wages'])
-    assert ( tax_form.get_local_taxable() 
-            == expected_output['get_local_taxable'])
-    assert ( tax_form.get_employee_tax() 
-            == expected_output['get_employee_tax'])
-    assert ( tax_form.calc_employee_tax() 
-            == expected_output['calc_employee_tax'])
-    assert ( tax_form.calc_outside_wages() 
-            == expected_output['calc_outside_wages'])
-    assert ( tax_form.get_form_name() 
-            == expected_output['get_form_name'])
-    assert ( tax_form.get_filing_frequency() 
-            == expected_output['get_filing_frequency'])
-    assert ( tax_form.get_period() 
-            == expected_output['get_period'])
-    assert ( tax_form.get_client_id() 
-            == expected_output['get_client_id'])
+    failed_assertions = []
+
+    try:
+        assert (tax_form.get_client_name() 
+                == expected_output['get_client_name'])
+    except AssertionError:
+        failed_assertions.append('get_client_name failed')
+
+    try:
+        assert (tax_form.get_loc_acct_id() 
+                == expected_output['get_loc_acct_id'])
+    except AssertionError:
+        failed_assertions.append('get_loc_acct_id failed')
+
+    try:
+        assert (tax_form.get_fein() 
+                == expected_output['get_fein'])
+    except AssertionError:
+        failed_assertions.append('get_fein failed')
+
+    try:
+        assert (tax_form.get_agent_name() 
+                == expected_output['get_agent_name'])
+    except AssertionError:
+        failed_assertions.append('get_agent_name failed')
+
+    try:
+        assert (tax_form.get_title_name() 
+                == expected_output['get_title_name'])
+    except AssertionError:
+        failed_assertions.append('get_title_name failed')
+
+    try:
+        assert (tax_form.get_agency_phone() 
+                == expected_output['get_agency_phone'])
+    except AssertionError:
+        failed_assertions.append('get_agency_phone failed')
+
+    try:
+        assert (tax_form.get_agency_fax() 
+                == expected_output['get_agency_fax'])
+    except AssertionError:
+        failed_assertions.append('get_agency_fax failed')
+
+    try:
+        assert (tax_form.get_agency_email() 
+                == expected_output['get_agency_email'])
+    except AssertionError:
+        failed_assertions.append('get_agency_email failed')
+
+    try:
+        assert (tax_form.get_agency_name() 
+                == expected_output['get_agency_name'])
+    except AssertionError:
+        failed_assertions.append('get_agency_name failed')
+
+    try:
+        assert (tax_form.get_agency_ein() 
+                == expected_output['get_agency_ein'])
+    except AssertionError:
+        failed_assertions.append('get_agency_ein failed')
+
+    try:
+        assert (tax_form.get_agency_address() 
+                == expected_output['get_agency_address'])
+    except AssertionError:
+        failed_assertions.append('get_agency_address failed')
+
+    try:
+        assert (tax_form.get_agency_city() 
+                == expected_output['get_agency_city'])
+    except AssertionError:
+        failed_assertions.append('get_agency_city failed')
+
+    try:
+        assert (tax_form.get_agency_state() 
+                == expected_output['get_agency_state'])
+    except AssertionError:
+        failed_assertions.append('get_agency_state failed')
+
+    try:
+        assert (tax_form.get_agency_zip() 
+                == expected_output['get_agency_zip'])
+    except AssertionError:
+        failed_assertions.append('get_agency_zip failed')
+
+    try:
+        assert (tax_form.get_month() 
+                == expected_output['get_month'])
+    except AssertionError:
+        failed_assertions.append('get_month failed')
+
+    try:
+        assert (tax_form.get_quarter() 
+                == expected_output['get_quarter'])
+    except AssertionError:
+        failed_assertions.append('get_quarter failed')
+
+    try:
+        assert (tax_form.get_year() 
+                == expected_output['get_year'])
+    except AssertionError:
+        failed_assertions.append('get_year failed')
+
+    try:
+        assert (tax_form.get_date() 
+                == expected_output['get_date'])
+    except AssertionError:
+        failed_assertions.append('get_date failed')
+
+    try:
+        assert (tax_form.get_due_date() 
+                == expected_output['get_due_date'])
+    except AssertionError:
+        failed_assertions.append('get_due_date failed')
+
+    try:
+        assert (tax_form.get_period_start() 
+                == expected_output['get_period_start'])
+    except AssertionError:
+        failed_assertions.append('get_period_start failed')
+
+    try:
+        assert (tax_form.get_period_end() 
+                == expected_output['get_period_end'])
+    except AssertionError:
+        failed_assertions.append('get_period_end failed')
+
+    try:
+        assert (tax_form.get_period_check() 
+                == expected_output['get_period_check'])
+    except AssertionError:
+        failed_assertions.append('get_period_check failed')
+
+    try:
+        assert (tax_form.get_employee_count() 
+                == expected_output['get_employee_count'])
+    except AssertionError:
+        failed_assertions.append('get_employee_count failed')
+
+    try:
+        assert (tax_form.get_gross_wages() 
+                == expected_output['get_gross_wages'])
+    except AssertionError:
+        failed_assertions.append('get_gross_wages failed')
+
+    try:
+        assert (tax_form.get_local_taxable() 
+                == expected_output['get_local_taxable'])
+    except AssertionError:
+        failed_assertions.append('get_local_taxable failed')
+
+    try:
+        assert (tax_form.get_employee_tax() 
+                == expected_output['get_employee_tax'])
+    except AssertionError:
+        failed_assertions.append('get_employee_tax failed')
+
+    try:
+        assert (tax_form.calc_employee_tax() 
+                == expected_output['calc_employee_tax'])
+    except AssertionError:
+        failed_assertions.append('calc_employee_tax failed')
+
+    try:
+        assert (tax_form.calc_outside_wages() 
+                == expected_output['calc_outside_wages'])
+    except AssertionError:
+        failed_assertions.append('calc_outside_wages failed')
+
+    try:
+        assert (tax_form.get_form_name() 
+                == expected_output['get_form_name'])
+    except AssertionError:
+        failed_assertions.append('get_form_name failed')
+
+    try:
+        assert (tax_form.get_filing_frequency() 
+                == expected_output['get_filing_frequency'])
+    except AssertionError:
+        failed_assertions.append('get_filing_frequency failed')
+
+    try:
+        assert (tax_form.get_period() 
+                == expected_output['get_period'])
+    except AssertionError:
+        failed_assertions.append('get_period failed')
+
+    try:
+        assert (tax_form.get_client_id() 
+                == expected_output['get_client_id'])
+    except AssertionError:
+        failed_assertions.append('get_client_id failed')
+
+    return failed_assertions
 
 
 def main():
